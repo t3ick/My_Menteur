@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Livre_d'or/.idea/Livre_d'or.iml" filepath="$PROJECT_DIR$/../Livre_d'or/.idea/Livre_d'or.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/My_Menteur.iml" filepath="$PROJECT_DIR$/.idea/My_Menteur.iml" />
+    </modules>
+  </component>
+</project>
