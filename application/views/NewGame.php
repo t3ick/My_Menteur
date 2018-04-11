@@ -12,36 +12,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </style>
 </head>
 <body>
-    <a href="/My_Menteur/">Main<a>
-    <br>
-                Game name<br>
-                <input type="text" name="ID_Game" value="" size="50" ><br>
-
+    <a href="/My_Menteur/">Main<a><br>
+    Game name<br>
+        <input type="text" name="ID_Game" value="" size="50" ><br>
             <select name="NbPlayer" id="select1">
-                <optgroup label="nb" id="NbPlayer">
+                <optgroup label="nb">
                     <? for ($i = 1; $i <= 7; $i++) : ?>
-                    <option value=<? echo $i.'>'.$i ?></option>
-                        <? endfor; ?>
+                        <option value=<? echo $i ?> > <? echo $i ?></option>
+                    <? endfor; ?>
                 </optgroup>
-            </select><br>
+            </select>
 
             <div id="players">
-                player 1<br>
-                <input type="text" value="" size="50" id="playerName"><br>
-                <input type="submit" value="New Game" >
+                player 1 <input type="text" value="" size="50" id="playerName"><br>
             <div/>
+            <input type="submit" value="Create New Game" >
 </body>
 
 <script type="text/javascript">
-        $('select#select1').change(function() {
-            var nb = $(':selected', this)[0].attributes.value
-            $('input').remove(playerName);.value;
+    $('select#select1').change(function() {
 
-                for (var i=1; i <= nb; i++) {
-                $('#players').append('player ' + i +
-                '<br><input type="text" value="" size="50" id="playerName"><br>'
-                )}
-            $('#players').append('<input type="submit" value="New Game">');
+        var nb = $(':selected')[0].attributes.value.value;
+        $('#players').empty();
+
+        for (var i = 1; i <= nb; i++) {
+            $('#players').append('player ' + i + ' <input type="text" value="" size="50" id="playerName"><br>');
+        }
+
         })
 </script>
 </html>
