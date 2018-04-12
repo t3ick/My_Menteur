@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div id="players">
                 player 1 <input type="text" value="" size="50" id="playerName"><br>
-            <div/>
+            </div>
             <input type="submit" value="Create New Game" >
 </body>
 
