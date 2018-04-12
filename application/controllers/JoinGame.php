@@ -7,26 +7,25 @@
  */
 class JoinGame extends CI_Controller {
 
-    public function __construct() {
-        $this->load->library('session');
-    }
-
     public function Player()
     {
-        if (!isset($this->session->userdata['username'])) {
+        $this->load->library('session');
+        if (isset($this->session->userdata['username'])) {
             $this->load->view('JoinParty');
         }
         else {
-            echo 'urIn';
+            echo 'notlog';
         }
     }
 
     public function LogIn() {
+        $this->load->library('session');
         $log = array('username'  => 'tri3');
         $this->session->set_userdata($log);
     }
 
     public function LogOut() {
+        $this->load->library('session');
         $this->session->sess_destroy();
     }
 }
