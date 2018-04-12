@@ -18,8 +18,8 @@ function MY_Help_helper(){
     echo "Connected successfully";
 }
 
-function affCards ($hand, $player, $j) {
-    echo '<br>' . $player[$j];
+function affCards ($hand, $players, $j) {
+    echo '<br>' . $players[$j];
     for ($i = 0; isset($hand[$j][$i]); $i++) {
         $bin = hexdec($hand[$j][$i]);
         if (1 <= $bin % 2)
@@ -34,9 +34,9 @@ function affCards ($hand, $player, $j) {
     echo '<br>';
 }
 
-function affAllCards ($hand, $player) {
+function affAllCards ($hand, $players) {
     for ($j = 0; isset($hand[$j]); $j++) {
-        affCards ($hand, $player, $j);
+        affCards ($hand, $players, $j);
     }
 }
 
@@ -56,5 +56,26 @@ function countCard ($hand, $player) {
                 $nb++;
             }
         }
+    }
+    return $nb;
+}
+
+function affPlayer ($hand, $players, $player_id) {
+    echo '<br>Vous avez '.countCard($hand, $player_id).' cartes<br>';
+    affCards ($hand, $players, $player_id);
+    echo '<br>';
+    for ($i = 0; isset($players[$i]) ;$i++)  {
+        if ($i != $player_id) {
+            echo $players[$i] . ' ';
+            echo countCard($hand, $i).'<br>';
+        }
+    }
+}
+
+function out($hand, $nb) {
+    if ($hand[$nb] == 'f') {
+        $hand[$nb] = '0';
+        $hand[count($hand) - 1] = 'f';
+        return true;
     }
 }
