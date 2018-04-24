@@ -15,12 +15,17 @@ class CreateParty extends CI_Model {
             get_instance()->db = $this->load->database('db', true);
         }
 
-//        print_r($this->db);die;
+        $oGame = (object) array();
 
-        $this->db->set('name_game', 'first game')
-            ->set('nbPlayer', 6)
-            ->set('pass_party', 'test')
-            ->set('deroulement', 'fff')
+        $oGame->name_game = 'third';
+        $oGame->nbPlayer = 6;
+        $oGame->pass_party = 'test';
+        $oGame->deroulement = 'fff';
+
+        $this->db->set('name_game', $oGame->name_game)
+            ->set('nbPlayer', $oGame->nbPlayer)
+            ->set('pass_party', $oGame->pass_party)
+            ->set('deroulement', $oGame->deroulement)
             ->insert('game');
 
         $tab = $this->db->from('game')

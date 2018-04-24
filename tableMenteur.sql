@@ -6,7 +6,8 @@ CREATE TABLE `game` (
 	`creation` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
 	`update` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`deroulement` TEXT NULL,
-	PRIMARY KEY (`id_game`, `name_game`)
+	PRIMARY KEY (`id_game`),
+	UNIQUE INDEX `name_game` (`name_game`)
 );
 CREATE TABLE `party` (
 	`id_party` INT(11) NOT NULL AUTO_INCREMENT,
@@ -15,7 +16,9 @@ CREATE TABLE `party` (
 	`id_player` TINYINT(3) NULL DEFAULT NULL,
 	`hand` VARCHAR(13) NULL DEFAULT NULL,
 	`creation` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (`id_party`)
+	PRIMARY KEY (`id_party`),
+	INDEX `id_game` (`id_game`),
+	INDEX `id_player` (`id_player`)
 );
 CREATE TABLE `player` (
 	`id_player` INT(11) NOT NULL AUTO_INCREMENT,
@@ -25,5 +28,7 @@ CREATE TABLE `player` (
 	`email` VARCHAR(32) NOT NULL,
 	`creation` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`update` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	PRIMARY KEY (`id_player`, `name`, `email`)
+	PRIMARY KEY (`id_player`),
+	UNIQUE INDEX `name` (`name`),
+	UNIQUE INDEX `email` (`email`)
 );
