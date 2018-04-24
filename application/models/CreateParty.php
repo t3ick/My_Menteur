@@ -9,22 +9,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class CreateParty extends CI_Model {
 
-    public function __construct ($party = 'test'){
+    public function __construct ($party = 'test')
+    {
         if (empty(get_instance()->db)) {
             get_instance()->db = $this->load->database('db', true);
         }
 
-        $this->db->set('Player', 'J2')
-            ->set('Hand', 'ffffffffff')
-            ->insert($party);
+//        print_r($this->db);die;
 
-        $tab = $this->db->select('*')
-            ->from($party)
-            ->get()
-            ->result();
+        $this->db->set('name_game', 'first game')
+            ->set('nbPlayer', 6)
+            ->set('pass_party', 'test')
+            ->set('deroulement', 'fff')
+            ->insert('game');
+
+        $tab = $this->db->from('game')
+            ->select('*')
+            ->get()->result();
 
         echo '<pre>';
         print_r($tab);
-
     }
 }

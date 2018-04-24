@@ -10,11 +10,11 @@ class JoinGame extends CI_Controller {
     public function Player()
     {
         $this->load->library('session');
-        if (isset($this->session->userdata['username'])) {
+        if (!isset($this->session->userdata['username'])) {
             $this->load->view('JoinParty');
         }
         else {
-            echo 'notlog';
+            echo 'log';
         }
     }
 
