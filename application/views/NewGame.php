@@ -26,15 +26,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </select>
 
             <div id="players">
-                player 1 <input type="text" value="Player 1" size="50" id="playerName1"><br>
-                player 2 <input type="text" value="Player 2" size="50" id="playerName2"><br>
+                player 1 <input type="text" value="P1" size="50" id="playerName1"><br>
+                player 2 <input type="text" value="P2" size="50" id="playerName2"><br>
             </div>
             <input type="submit" value="Create New Game" id="createGame">
 </body>
 
 <script type="text/javascript">
     $('select#select1').change(function() {
-        var valPlayer;
         var nb = $(':selected')[0].attributes.value.value;
         $('#players').empty();
 
@@ -44,7 +43,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         })
     $('#createGame').click(function() {
-        console.log(nb);
+        var nb = $(':selected')[0].attributes.value.value;
+        for (var i = 1; i <= nb; i++) {
+            var player = new Array();
+            player[i] = $('#playerName' + i)[0].value;
+            console.log(player[i]);
+        }
     })
 </script>
 </html>
